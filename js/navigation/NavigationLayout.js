@@ -8,27 +8,54 @@ import Map from "../screens/Map";
 import Faves from "../screens/Faves";
 import Schedule from "../screens/Schedule";
 import Icon from "react-native-vector-icons/Ionicons";
+import { sharedNavigationOptions } from "./config";
 
-const aboutStack = createStackNavigator({
-  About: {
-    screen: About
+const aboutStack = createStackNavigator(
+  {
+    About: About
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation)
+    })
   }
-});
-const mapStack = createStackNavigator({
-  Map: {
-    screen: Map
+);
+const mapStack = createStackNavigator(
+  {
+    Map: {
+      screen: Map
+    }
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation)
+    })
   }
-});
-const favesStack = createStackNavigator({
-  Faves: {
-    screen: Faves
+);
+const favesStack = createStackNavigator(
+  {
+    Faves: {
+      screen: Faves
+    }
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation)
+    })
   }
-});
-const scheduleStack = createStackNavigator({
-  Schedule: {
-    screen: Schedule
+);
+const scheduleStack = createStackNavigator(
+  {
+    Schedule: {
+      screen: Schedule
+    }
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation)
+    })
   }
-});
+);
 
 export default createBottomTabNavigator(
   {
@@ -59,8 +86,6 @@ export default createBottomTabNavigator(
         } else if (routeName === "About") {
           iconName = `ios-information-circle`;
         }
-        // You can return any component that you like here! We usually use an
-        // icon component from react-native-vector-icons
         return <Icon name={iconName} size={25} color={tintColor} />;
       }
     }),
