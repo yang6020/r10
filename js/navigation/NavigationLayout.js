@@ -9,6 +9,7 @@ import Faves from "../screens/Faves";
 import Schedule from "../screens/Schedule";
 import Icon from "react-native-vector-icons/Ionicons";
 import { sharedNavigationOptions } from "./config";
+import { StatusBar } from "react-native";
 
 const aboutStack = createStackNavigator(
   {
