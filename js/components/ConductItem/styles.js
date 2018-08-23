@@ -1,17 +1,23 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
+const montserrat = Platform.select({
+  ios: "Montserrat-light",
+  android: "Montserrat-Regular"
+});
+
 const styles = StyleSheet.create({
   desc: {
     paddingBottom: 20,
     textAlign: "left",
     marginLeft: 15,
-    fontFamily: "Montserrat-light"
+    fontFamily: montserrat
   },
   codeHeader: {
-    fontFamily: "Montserrat-light",
+    fontFamily: montserrat,
     color: "#9963ea",
     marginLeft: 15,
     fontSize: 14,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    paddingBottom: 15
   }
 });
 

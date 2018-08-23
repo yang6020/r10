@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import { Text, View } from "react-native";
+import { Text, ScrollView, View, StatusBar } from "react-native";
 
 export default class Session extends Component {
   render() {
+    sessionId = this.props.navigation.getParam("itemId");
     return (
-      <View>
+      <ScrollView>
+        <StatusBar barStyle="light-content" />
         <Text> Session </Text>
-      </View>
+      </ScrollView>
     );
   }
 }

@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import { Text, View } from "react-native";
+import { Text, View, StatusBar, ScrollView } from "react-native";
 
 export default class Speaker extends Component {
   render() {
     return (
-      <View>
+      <ScrollView>
+        <StatusBar barStyle="light-content" />
         <Text> Speaker Page </Text>
-      </View>
+      </ScrollView>
     );
   }
 }

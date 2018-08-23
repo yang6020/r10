@@ -1,15 +1,16 @@
 import React from "react";
-import {
-  createBottomTabNavigator,
-  createStackNavigator
-} from "react-navigation";
+import { createStackNavigator, createDrawerNavigator } from "react-navigation";
 import About from "../screens/About";
 import Map from "../screens/Map";
 import Faves from "../screens/Faves";
 import Schedule from "../screens/Schedule";
 import Icon from "react-native-vector-icons/Ionicons";
+import Session from "../screens/Session";
 import { sharedNavigationOptions } from "./config";
-import { StatusBar } from "react-native";
+
+const renderIcon = (iconName, tintColor) => {
+  return <Icon name={iconName} size={25} color={tintColor} />;
+};
 
 const aboutStack = createStackNavigator(
   {
@@ -21,6 +22,7 @@ const aboutStack = createStackNavigator(
     })
   }
 );
+
 const mapStack = createStackNavigator(
   {
     Map: {
@@ -49,6 +51,9 @@ const scheduleStack = createStackNavigator(
   {
     Schedule: {
       screen: Schedule
+    },
+    Session: {
+      screen: Session
     }
   },
   {
@@ -58,7 +63,23 @@ const scheduleStack = createStackNavigator(
   }
 );
 
-export default createBottomTabNavigator(
+aboutStack.navigationOptions = {
+  drawerIcon: ({ tintColor }) => renderIcon("md-information-circle", tintColor)
+};
+
+mapStack.navigationOptions = {
+  drawerIcon: ({ tintColor }) => renderIcon("md-map", tintColor)
+};
+
+favesStack.navigationOptions = {
+  drawerIcon: ({ tintColor }) => renderIcon("md-heart", tintColor)
+};
+
+scheduleStack.navigationOptions = {
+  drawerIcon: ({ tintColor }) => renderIcon("md-calendar", tintColor)
+};
+
+export default createDrawerNavigator(
   {
     Schedule: {
       screen: scheduleStack
