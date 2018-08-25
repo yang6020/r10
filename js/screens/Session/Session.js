@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   Text,
   ScrollView,
@@ -7,6 +7,8 @@ import {
   Image,
   TouchableHighlight
 } from "react-native";
+import styles from "./styles";
+import Icon from "react-native-vector-icons/Ionicons";
 
 const formatTime = timeString => {
   let H = +timeString.substr(0, 2);
@@ -22,13 +24,18 @@ const Session = ({ sessions, navigation, faveIds }) => {
   const isFaved = favesArr.includes(sessions.Session.id);
   sessionId = navigation.getParam("itemID");
   return (
-    <ScrollView>
+    <ScrollView style={styles.scroll}>
       <StatusBar barStyle="light-content" />
-      <Text> {sessions.Session.location} </Text>
-      <Text> {sessions.Session.title} </Text>
-      <Text>{formatTime(sessions.Session.startTime.substr(11, 8))}</Text>
-      <Text> {sessions.Session.description} </Text>
-      <Text>Presented by:</Text>
+      <View style={styles.heart}>
+        <Text style={styles.faded}>{sessions.Session.location}</Text>
+        {isFaved && <Icon name="md-heart" size={15} color="#cf392a" />}
+      </View>
+      <Text style={styles.header}>{sessions.Session.title}</Text>
+      <Text style={styles.time}>
+        {formatTime(sessions.Session.startTime.substr(11, 8))}
+      </Text>
+      <Text style={styles.desc}>{sessions.Session.description}</Text>
+      <Text style={styles.faded}>Presented by:</Text>
       <TouchableHighlight
         onPress={() =>
           navigation.navigate("Speaker", {
@@ -36,30 +43,33 @@ const Session = ({ sessions, navigation, faveIds }) => {
           })
         }
       >
-        <View>
+        <View style={styles.footerline}>
           <Image
-            style={{ height: 50, width: 50 }}
+            style={styles.img}
             source={{ uri: sessions.Session.speaker.image }}
           />
-          <Text>{sessions.Session.speaker.name}</Text>
+          <Text style={styles.speaker}> {sessions.Session.speaker.name}</Text>
         </View>
       </TouchableHighlight>
-      {isFaved ? (
-        <TouchableHighlight
-          onPress={() => faveIds.removeFave(sessions.Session.id)}
-        >
-          <Text>Remove Faves</Text>
-        </TouchableHighlight>
-      ) : (
-        <TouchableHighlight
-          onPress={() => {
-            faveIds.addFave(sessions.Session.id);
-            console.log(favesArr);
-          }}
-        >
-          <Text>Add to Faves</Text>
-        </TouchableHighlight>
-      )}
+      <View style={styles.container}>
+        {isFaved ? (
+          <TouchableHighlight
+            style={styles.button}
+            onPress={() => faveIds.removeFave(sessions.Session.id)}
+          >
+            <Text style={styles.buttonText}>Remove Faves</Text>
+          </TouchableHighlight>
+        ) : (
+          <TouchableHighlight
+            style={styles.button}
+            onPress={() => {
+              faveIds.addFave(sessions.Session.id);
+            }}
+          >
+            <Text style={styles.buttonText}>Add to Faves</Text>
+          </TouchableHighlight>
+        )}
+      </View>
     </ScrollView>
   );
 };

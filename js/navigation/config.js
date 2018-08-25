@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Platform } from "react-native";
 import { Header } from "react-navigation";
 import LinearGradient from "react-native-linear-gradient";
 import Icon from "react-native-vector-icons/Ionicons";
@@ -24,5 +24,18 @@ export const sharedNavigationOptions = navigation => ({
   },
   headerStyle: {
     backgroundColor: "transparent"
-  }
+  },
+
+  headerLeft: Platform.select({
+    ios: "",
+    android: (
+      <Icon
+        color="white"
+        name="md-menu"
+        size={30}
+        style={{ padding: 15 }}
+        onPress={() => navigation.openDrawer()}
+      />
+    )
+  })
 });

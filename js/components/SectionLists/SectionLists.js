@@ -50,7 +50,7 @@ const SectionLists = ({ sessions, navigation, favesIds }) => {
                           style={styles.heart}
                           name={iconName}
                           size={15}
-                          color="red"
+                          color="#cf392a"
                         />
                       )}
                     </View>

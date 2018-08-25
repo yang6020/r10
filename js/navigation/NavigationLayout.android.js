@@ -12,13 +12,6 @@ const renderIcon = (iconName, tintColor) => {
   return <Icon name={iconName} size={25} color={tintColor} />;
 };
 
-// const MenuIcon =({navigation})=>(
-//   <Icon name="md-menu"
-//   size={30}
-//   onPress={()=> hello.openDrawer }
-//   />
-//   )
-
 const aboutStack = createStackNavigator(
   {
     About: About
@@ -86,7 +79,7 @@ scheduleStack.navigationOptions = {
   drawerIcon: ({ tintColor }) => renderIcon("md-calendar", tintColor)
 };
 
-export default (hello = createDrawerNavigator(
+export default createDrawerNavigator(
   {
     Schedule: {
       screen: scheduleStack
@@ -130,4 +123,4 @@ export default (hello = createDrawerNavigator(
       }
     }
   }
-));
+);

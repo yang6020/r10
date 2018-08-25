@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     marginTop: 5,
     paddingBottom: 5,
-    paddingTop: 5
+    paddingTop: 5,
+    color: "black"
   },
   location: {
     fontFamily: montserrat,
@@ -38,7 +39,8 @@ const styles = StyleSheet.create({
     fontFamily: montserrat,
     fontSize: 11,
     paddingTop: 4,
-    paddingBottom: 4
+    paddingBottom: 4,
+    color: "black"
   },
   locationContainer: {
     flexDirection: "row",
