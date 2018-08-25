@@ -13,42 +13,34 @@ export default class SessionContainer extends Component {
     return (
       <Query
         query={gql`
-          {
-            allSessions {
+          query($id: ID) {
+            Session(id: $id) {
               startTime
               location
               title
               id
+              description
+              speaker {
+                image
+                name
+                id
+              }
             }
           }
         `}
+        variables={{ id: this.props.navigation.getParam("itemId") }}
       >
-        {({ loading, error, data: { allSessions } }) => {
+        {({ loading, error, data }) => {
           if (loading) return <Text>Loading...</Text>;
           if (error) return <Text>Error :(</Text>;
-
-          let sessions = allSessions
-            .reduce((acc, curr) => {
-              const timeExists = acc.find(
-                section => section.title === curr.startTime
-              );
-              timeExists
-                ? timeExists.data.push(curr)
-                : acc.push({
-                    title: curr.startTime,
-                    data: [curr]
-                  });
-              return acc;
-            }, [])
-            .sort((a, b) => a.title - b.title);
           return (
             <FavesContext.Consumer>
               {values => {
                 return (
                   <Session
-                    sessions={sessions}
+                    sessions={data}
                     navigation={this.props.navigation}
-                    favesIds={values}
+                    faveIds={values}
                   />
                 );
               }}

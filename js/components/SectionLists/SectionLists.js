@@ -26,7 +26,6 @@ const formatTime = timeString => {
 const SectionLists = ({ sessions, navigation, favesIds }) => {
   return (
     <View>
-      {console.log(sessions)}
       <SectionList
         renderItem={({ item, index, section }) => (
           <Fragment>
@@ -45,12 +44,15 @@ const SectionLists = ({ sessions, navigation, favesIds }) => {
                     <Text style={styles.title}>{item.title}</Text>
                     <View style={styles.locationContainer}>
                       <Text style={styles.location}>{item.location} </Text>
-                      <Icon
-                        style={styles.heart}
-                        name={iconName}
-                        size={15}
-                        color="red"
-                      />
+
+                      {favesIds.includes(item.id) && (
+                        <Icon
+                          style={styles.heart}
+                          name={iconName}
+                          size={15}
+                          color="red"
+                        />
+                      )}
                     </View>
                   </Fragment>
                 </TouchableHighlight>

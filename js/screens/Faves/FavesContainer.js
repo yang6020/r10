@@ -26,14 +26,12 @@ export default class FavesContainer extends Component {
         {({ loading, error, data: { allSessions } }) => {
           if (loading) return <Text>Loading...</Text>;
           if (error) return <Text>Error :(</Text>;
-          // Helper to format GraphQL data into section list data
 
           return (
             <FavesContext.Consumer>
               {values => {
                 const favesIdArr = [];
-                values.favesIds.map(item => favesIdArr.push(item.id));
-
+                values.faveIds.map(item => favesIdArr.push(item.id));
                 const favedSessions = allSessions.filter(session =>
                   favesIdArr.includes(session.id)
                 );
@@ -56,7 +54,7 @@ export default class FavesContainer extends Component {
                 return (
                   <Faves
                     navigation={this.props.navigation}
-                    favesIds={values}
+                    faveIds={favesIdArr}
                     sessions={sessions}
                   />
                 );

@@ -1,12 +1,15 @@
-import React, { Component } from "react";
-import { Text, View, StatusBar, ScrollView } from "react-native";
+import React from "react";
+import { StatusBar, ScrollView } from "react-native";
 import SectionLists from "../../components/SectionLists";
-const Faves = data => {
+const Faves = ({ sessions, navigation, faveIds }) => {
   return (
     <ScrollView>
-      {console.log(data)}
       <StatusBar barStyle="light-content" />
-      {/* <SectionLists sessions={data.faveIds} /> */}
+      <SectionLists
+        sessions={sessions}
+        navigation={navigation}
+        favesIds={faveIds}
+      />
     </ScrollView>
   );
 };

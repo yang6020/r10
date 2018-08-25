@@ -44,11 +44,13 @@ export default class ScheduleContainer extends Component {
           return (
             <FavesContext.Consumer>
               {values => {
+                faveIdArr = [];
+                values.faveIds.map(item => faveIdArr.push(item.id));
                 return (
                   <Schedule
                     sessions={sessions}
                     navigation={this.props.navigation}
-                    favesIds={values}
+                    favesIds={faveIdArr}
                   />
                 );
               }}
