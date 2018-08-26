@@ -5,10 +5,11 @@ import {
   View,
   StatusBar,
   Image,
-  TouchableHighlight
+  TouchableOpacity
 } from "react-native";
 import styles from "./styles";
 import Icon from "react-native-vector-icons/Ionicons";
+import LinearGradient from "react-native-linear-gradient";
 
 const formatTime = timeString => {
   let H = +timeString.substr(0, 2);
@@ -38,7 +39,7 @@ const Session = ({ sessions, navigation, faveIds }) => {
       {sessions.Session.speaker && (
         <Fragment>
           <Text style={styles.faded}>Presented by:</Text>
-          <TouchableHighlight
+          <TouchableOpacity
             onPress={() =>
               navigation.navigate("Speaker", {
                 speakerId: sessions.Session.speaker.id
@@ -54,27 +55,41 @@ const Session = ({ sessions, navigation, faveIds }) => {
                 {sessions.Session.speaker.name}
               </Text>
             </View>
-          </TouchableHighlight>
+          </TouchableOpacity>
         </Fragment>
       )}
 
       <View style={styles.container}>
         {isFaved ? (
-          <TouchableHighlight
+          <TouchableOpacity
             style={styles.button}
             onPress={() => faveIds.removeFave(sessions.Session.id)}
           >
-            <Text style={styles.buttonText}>Remove Faves</Text>
-          </TouchableHighlight>
+            <LinearGradient
+              colors={["#9963ea", "#8797D6"]}
+              start={{ x: 0.0, y: 0.0 }}
+              end={{ x: 1.0, y: 1.0 }}
+              style={styles.button}
+            >
+              <Text style={styles.buttonText}>Remove Faves</Text>
+            </LinearGradient>
+          </TouchableOpacity>
         ) : (
-          <TouchableHighlight
+          <TouchableOpacity
             style={styles.button}
             onPress={() => {
               faveIds.addFave(sessions.Session.id);
             }}
           >
-            <Text style={styles.buttonText}>Add to Faves</Text>
-          </TouchableHighlight>
+            <LinearGradient
+              colors={["#9963ea", "#8797D6"]}
+              start={{ x: 0.0, y: 0.0 }}
+              end={{ x: 1.0, y: 1.0 }}
+              style={styles.button}
+            >
+              <Text style={styles.buttonText}>Add Faves</Text>
+            </LinearGradient>
+          </TouchableOpacity>
         )}
       </View>
     </ScrollView>

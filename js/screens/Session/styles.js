@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
   footerline: {
     borderBottomWidth: 1,
-    borderColor: "#f6f6f6",
+    borderColor: "#d6d6d6",
     paddingTop: 15,
     paddingBottom: 16,
     flexWrap: "wrap",
@@ -49,11 +49,11 @@ const styles = StyleSheet.create({
     marginLeft: 5
   },
   button: {
-    marginTop: 20,
+    marginTop: 5,
     padding: 10,
-    backgroundColor: "purple",
-    borderRadius: 100,
-    width: "65%"
+    borderRadius: 25,
+    width: "80%",
+    alignItems: "center"
   },
   time: {
     paddingBottom: 15,
