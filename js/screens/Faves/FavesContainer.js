@@ -3,7 +3,7 @@ import Faves from "./Faves";
 import FavesContext from "../../context/FavesContext";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import { Text } from "react-native";
+import { Text, ActivityIndicator, View } from "react-native";
 
 export default class FavesContainer extends Component {
   static navigationOptions = {
@@ -24,7 +24,12 @@ export default class FavesContainer extends Component {
         `}
       >
         {({ loading, error, data: { allSessions } }) => {
-          if (loading) return <Text>Loading...</Text>;
+          if (loading)
+            return (
+              <View style={{ alignItems: "center", justifyContent: "center" }}>
+                <ActivityIndicator size="large" />
+              </View>
+            );
           if (error) return <Text>Error :(</Text>;
 
           return (

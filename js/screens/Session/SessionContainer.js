@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Session from "./Session";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import { Text } from "react-native";
+import { Text, ActivityIndicator, View } from "react-native";
 import FavesContext from "../../context/FavesContext";
 
 export default class SessionContainer extends Component {
@@ -31,7 +31,12 @@ export default class SessionContainer extends Component {
         variables={{ id: this.props.navigation.getParam("itemId") }}
       >
         {({ loading, error, data }) => {
-          if (loading) return <Text>Loading...</Text>;
+          if (loading)
+            return (
+              <View style={{ alignItems: "center", justifyContent: "center" }}>
+                <ActivityIndicator size="large" />
+              </View>
+            );
           if (error) return <Text>Error :(</Text>;
           return (
             <FavesContext.Consumer>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import {
   Text,
   ScrollView,
@@ -35,22 +35,29 @@ const Session = ({ sessions, navigation, faveIds }) => {
         {formatTime(sessions.Session.startTime.substr(11, 8))}
       </Text>
       <Text style={styles.desc}>{sessions.Session.description}</Text>
-      <Text style={styles.faded}>Presented by:</Text>
-      <TouchableHighlight
-        onPress={() =>
-          navigation.navigate("Speaker", {
-            speakerId: sessions.Session.speaker.id
-          })
-        }
-      >
-        <View style={styles.footerline}>
-          <Image
-            style={styles.img}
-            source={{ uri: sessions.Session.speaker.image }}
-          />
-          <Text style={styles.speaker}> {sessions.Session.speaker.name}</Text>
-        </View>
-      </TouchableHighlight>
+      {sessions.Session.speaker && (
+        <Fragment>
+          <Text style={styles.faded}>Presented by:</Text>
+          <TouchableHighlight
+            onPress={() =>
+              navigation.navigate("Speaker", {
+                speakerId: sessions.Session.speaker.id
+              })
+            }
+          >
+            <View style={styles.footerline}>
+              <Image
+                style={styles.img}
+                source={{ uri: sessions.Session.speaker.image }}
+              />
+              <Text style={styles.speaker}>
+                {sessions.Session.speaker.name}
+              </Text>
+            </View>
+          </TouchableHighlight>
+        </Fragment>
+      )}
+
       <View style={styles.container}>
         {isFaved ? (
           <TouchableHighlight

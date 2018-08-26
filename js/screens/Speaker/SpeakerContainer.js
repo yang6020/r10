@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import Speaker from "./Speaker";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import { Text } from "react-native";
-import FavesContext from "../../context/FavesContext";
-import { valueFromAST } from "graphql";
+import { Text, ActivityIndicator, View } from "react-native";
 
 class SpeakerContainer extends Component {
   static navigationOptions = {
@@ -28,7 +26,12 @@ class SpeakerContainer extends Component {
         variables={{ id: this.props.navigation.getParam("speakerId") }}
       >
         {({ loading, error, data }) => {
-          if (loading) return <Text>Loading...</Text>;
+          if (loading)
+            return (
+              <View style={{ alignItems: "center", justifyContent: "center" }}>
+                <ActivityIndicator size="large" />
+              </View>
+            );
           if (error) return <Text>Error :(</Text>;
           return <Speaker speaker={data} navigation={this.props.navigation} />;
         }}

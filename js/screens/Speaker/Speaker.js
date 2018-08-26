@@ -5,29 +5,42 @@ import {
   ScrollView,
   TouchableOpacity,
   Linking,
-  Image
+  Image,
+  View
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
+import styles from "./styles";
+
 const Speaker = ({ speaker, navigation }) => {
   return (
-    <ScrollView>
-      <StatusBar barStyle="light-content" />
-      <Icon
-        style={{ marginTop: 50 }}
-        name="md-close"
-        onPress={() => navigation.goBack()}
-      />
-      <Text>About the Speaker</Text>
-      <Image
-        style={{ height: 100, width: 100 }}
-        source={{ uri: speaker.Speaker.image }}
-      />
-      <Text> {speaker.Speaker.name}</Text>
-      <Text>{speaker.Speaker.bio}</Text>
-      <TouchableOpacity onPress={() => Linking.openURL(speaker.Speaker.url)}>
-        <Text>Read More on Wikipedia</Text>
-      </TouchableOpacity>
-    </ScrollView>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Icon
+          name="md-close"
+          onPress={() => navigation.goBack()}
+          color="#e6e6e6"
+          size={23}
+        />
+        <Text style={styles.about}>About the Speaker</Text>
+      </View>
+      <ScrollView style={styles.scroll}>
+        <StatusBar barStyle="light-content" />
+        <View style={styles.body}>
+          <Image
+            style={styles.speakerIcon}
+            source={{ uri: speaker.Speaker.image }}
+          />
+          <Text style={styles.name}> {speaker.Speaker.name}</Text>
+          <Text style={styles.desc}>{speaker.Speaker.bio}</Text>
+          <TouchableOpacity
+            style={styles.wiki}
+            onPress={() => Linking.openURL(speaker.Speaker.url)}
+          >
+            <Text style={styles.wikiText}>Read More on Wikipedia</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+    </View>
   );
 };
 

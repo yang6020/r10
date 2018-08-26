@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import About from "./About";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
-import { Text } from "react-native";
+import { Text, ActivityIndicator, View } from "react-native";
 
 const ALL_CONDUCT_QUERY = gql`
   {
@@ -22,7 +22,12 @@ export default class AboutContainer extends Component {
     return (
       <Query query={ALL_CONDUCT_QUERY}>
         {({ data: { allConducts }, loading, error }) => {
-          if (loading) return <Text>Loading...</Text>;
+          if (loading)
+            return (
+              <View style={{ alignItems: "center", justifyContent: "center" }}>
+                <ActivityIndicator size="large" />
+              </View>
+            );
           if (error) return <Text>Error :</Text>;
           return <About conducts={allConducts} />;
         }}
