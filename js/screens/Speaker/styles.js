@@ -62,13 +62,12 @@ const styles = StyleSheet.create({
     fontFamily: montserrat,
     color: "black"
   },
-  wiki: {
-    marginTop: 20,
+  button: {
+    marginTop: 5,
     padding: 10,
-    backgroundColor: "purple",
-    borderRadius: 100,
+    borderRadius: 25,
     width: "80%",
-    marginBottom: 20
+    alignItems: "center"
   },
   wikiText: {
     textAlign: "center",

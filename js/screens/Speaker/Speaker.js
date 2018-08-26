@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import styles from "./styles";
-
+import LinearGradient from "react-native-linear-gradient";
 const Speaker = ({ speaker, navigation }) => {
   return (
     <View style={styles.container}>
@@ -33,10 +33,16 @@ const Speaker = ({ speaker, navigation }) => {
           <Text style={styles.name}> {speaker.Speaker.name}</Text>
           <Text style={styles.desc}>{speaker.Speaker.bio}</Text>
           <TouchableOpacity
-            style={styles.wiki}
             onPress={() => Linking.openURL(speaker.Speaker.url)}
           >
-            <Text style={styles.wikiText}>Read More on Wikipedia</Text>
+            <LinearGradient
+              colors={["#9963ea", "#8797D6"]}
+              start={{ x: 0.0, y: 0.0 }}
+              end={{ x: 1.0, y: 1.0 }}
+              style={styles.button}
+            >
+              <Text style={styles.wikiText}>Read More on Wikipedia</Text>
+            </LinearGradient>
           </TouchableOpacity>
         </View>
       </ScrollView>

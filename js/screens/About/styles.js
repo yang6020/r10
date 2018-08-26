@@ -1,7 +1,7 @@
 import { StyleSheet, Platform } from "react-native";
 const montserratLight = Platform.select({
   ios: "Montserrat-light",
-  android: "Montserrat-Regular"
+  android: "Montserrat-Light"
 });
 
 const montserrat = Platform.select({

@@ -9,14 +9,16 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     textAlign: "left",
     marginLeft: 15,
-    fontFamily: montserrat
+    fontFamily: montserrat,
+    flexWrap: "wrap"
   },
   codeHeader: {
     fontFamily: montserrat,
     color: "#9963ea",
     fontSize: 14,
     fontWeight: "bold",
-    paddingBottom: 15
+    paddingBottom: 15,
+    flexWrap: "wrap"
   }
 });
 
