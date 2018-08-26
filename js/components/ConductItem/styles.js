@@ -14,7 +14,6 @@ const styles = StyleSheet.create({
   codeHeader: {
     fontFamily: montserrat,
     color: "#9963ea",
-    marginLeft: 15,
     fontSize: 14,
     fontWeight: "bold",
     paddingBottom: 15
