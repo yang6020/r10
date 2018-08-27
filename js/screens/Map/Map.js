@@ -1,20 +1,36 @@
 import React, { Component } from "react";
-import { Text, View, StatusBar } from "react-native";
-// import MapView from "react-native-maps";
+import { Text, View, StatusBar, Dimensions, StyleSheet } from "react-native";
+import MapView, { Marker } from "react-native-maps";
+const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
 
-const Map = ({ mapData }) => {
+const styles = StyleSheet.create({
+  map: {
+    ...StyleSheet.absoluteFillObject,
+    height: height,
+    width: width
+  }
+});
+const region = {
+  latitude: 49.2633695,
+  longitude: -123.1381744,
+  latitudeDelta: 0.00922,
+  longitudeDelta: 0.00421
+};
+
+const Map = () => {
   return (
     <View>
       <StatusBar barStyle="light-content" />
-      {/* <MapView
-        initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421
-        }}
-      /> */}
-      <Text> Map </Text>
+      <MapView style={styles.map} region={region}>
+        <Marker
+          coordinate={{
+            latitude: region.latitude,
+            longitude: region.longitude
+          }}
+          image={require("../../assets/images/map_pin1.png")}
+        />
+      </MapView>
     </View>
   );
 };
