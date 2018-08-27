@@ -1,7 +1,8 @@
 import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white"
+    backgroundColor: "white",
+    height: "100%"
   },
   comingSoon: {
     fontFamily: "Montserrat-Regular",
