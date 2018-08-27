@@ -1,10 +1,15 @@
 import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
-  scroll: {
+  container: {
+    backgroundColor: "white"
+  },
+  comingSoon: {
+    fontFamily: "Montserrat-Regular",
+    fontSize: 40,
+    textAlign: "center",
+    justifyContent: "center",
     marginTop: 100,
-    borderBottomWidth: 0.5,
-    borderColor: "#999999",
-    paddingBottom: 30
+    color: "black"
   }
 });
 
