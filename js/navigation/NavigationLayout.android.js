@@ -95,32 +95,8 @@ export default createDrawerNavigator(
     }
   },
   {
-    navigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, tintColor }) => {
-        const { routeName } = navigation.state;
-        let iconName;
-        if (routeName === "Schedule") {
-          iconName = `ios-calendar`;
-        } else if (routeName === "Map") {
-          iconName = `ios-map`;
-        } else if (routeName === "Faves") {
-          iconName = `ios-heart`;
-        } else if (routeName === "About") {
-          iconName = `ios-information-circle`;
-        }
-        return <Icon name={iconName} size={25} color={tintColor} />;
-      }
-    }),
-    tabBarOptions: {
-      activeTintColor: "white",
-      inactiveTintColor: "#999999",
-      labelStyle: {
-        fontSize: 10,
-        fontFamily: "Montserrat"
-      },
-      style: {
-        backgroundColor: "black"
-      }
+    contentOptions: {
+      activeTintColor: "#9963ea"
     }
   }
 );
