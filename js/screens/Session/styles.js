@@ -32,7 +32,8 @@ const styles = StyleSheet.create({
   },
   faded: {
     fontFamily: montserrat,
-    color: "#999999"
+    color: "#999999",
+    marginTop: 20
   },
   footerline: {
     borderBottomWidth: 1,
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
     marginLeft: 5
   },
   button: {
-    marginTop: 5,
+    marginTop: 10,
     padding: 10,
     borderRadius: 25,
     width: "80%",

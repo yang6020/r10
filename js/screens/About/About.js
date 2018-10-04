@@ -1,7 +1,4 @@
-import React from "react";
-import { Text, View, ScrollView, Image, StatusBar } from "react-native";
-import styles from "./styles";
-import ConductItem from "../../components/ConductItem";
+import ConductItem from '../../components/ConductItem';
 
 const About = data => {
   return (

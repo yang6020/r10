@@ -11,7 +11,6 @@ const montserrat = Platform.select({
 
 const styles = StyleSheet.create({
   scroll: {
-    marginTop: 20,
     borderBottomWidth: 0.5,
     backgroundColor: "white",
     height: "100%",
@@ -19,7 +18,6 @@ const styles = StyleSheet.create({
   },
   container: {
     backgroundColor: "black",
-    paddingTop: 15,
     paddingRight: 15,
     paddingLeft: 15,
     height: "100%"
@@ -27,15 +25,13 @@ const styles = StyleSheet.create({
   about: {
     fontFamily: montserrat,
     color: "white",
-    marginLeft: "22%",
-    fontWeight: "bold",
-    marginTop: 2
+    alignSelf: "flex-start",
+    fontSize: 18
   },
   header: {
-    flexWrap: "wrap",
     flexDirection: "row",
-    marginTop: 35,
-    paddingBottom: 5
+    paddingVertical: 40,
+    color: "white"
   },
   speakerIcon: {
     marginTop: 20,
@@ -75,6 +71,9 @@ const styles = StyleSheet.create({
     fontFamily: montserrat,
     fontSize: 14.5,
     lineHeight: 15 * 1.5
+  },
+  buttonMargin: {
+    marginTop: 20
   }
 });
 

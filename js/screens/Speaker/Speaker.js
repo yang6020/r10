@@ -16,6 +16,7 @@ const Speaker = ({ speaker, navigation }) => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Icon
+          style={{ flex: 0.5, marginLeft: 15 }}
           name="md-close"
           onPress={() => navigation.goBack()}
           color="#e6e6e6"
@@ -33,6 +34,7 @@ const Speaker = ({ speaker, navigation }) => {
           <Text style={styles.name}> {speaker.Speaker.name}</Text>
           <Text style={styles.desc}>{speaker.Speaker.bio}</Text>
           <TouchableOpacity
+            style={styles.buttonMargin}
             onPress={() => Linking.openURL(speaker.Speaker.url)}
           >
             <LinearGradient

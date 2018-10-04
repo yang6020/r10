@@ -26,13 +26,14 @@ const styles = StyleSheet.create({
     textAlign: "left",
     marginLeft: 5,
     fontFamily: montserratLight,
-    color: "black"
+    color: "black",
+    fontSize: 16
   },
   header: {
     paddingBottom: 20,
     textAlign: "left",
     marginLeft: 5,
-    fontSize: 20,
+    fontSize: 21,
     fontFamily: montserrat,
     color: "black"
   },

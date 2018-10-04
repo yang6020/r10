@@ -1,10 +1,19 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
+const montserrat = Platform.select({
+  ios: "Montserrat",
+  android: "Montserrat-Right"
+});
+
 const styles = StyleSheet.create({
-  scroll: {
-    marginTop: 100,
-    borderBottomWidth: 0.5,
-    borderColor: "#999999",
-    paddingBottom: 30
+  addSomeFaves: {
+    alignItems: "center",
+    textAlign: "center",
+    color: "#535353",
+    fontFamily: montserrat,
+    fontSize: 20,
+    justifyContent: "center",
+    fontWeight: "bold",
+    marginTop: "20%"
   }
 });
 

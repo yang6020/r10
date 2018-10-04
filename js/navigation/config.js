@@ -25,17 +25,19 @@ export const sharedNavigationOptions = navigation => ({
   headerStyle: {
     backgroundColor: "transparent"
   },
-
   headerLeft: Platform.select({
     ios: "",
-    android: (
-      <Icon
-        color="white"
-        name="md-menu"
-        size={30}
-        style={{ padding: 15 }}
-        onPress={() => navigation.openDrawer()}
-      />
-    )
+    android:
+      navigation.routeName == "Session" || navigation.routeName == "Speaker" ? (
+        ""
+      ) : (
+        <Icon
+          color="white"
+          name="md-menu"
+          size={30}
+          style={{ padding: 15 }}
+          onPress={() => navigation.openDrawer()}
+        />
+      )
   })
 });

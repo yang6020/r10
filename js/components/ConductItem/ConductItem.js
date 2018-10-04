@@ -41,7 +41,11 @@ export default class ConductItem extends Component {
         </TouchableOpacity>
         {this.state.toggled && (
           <Animated.View
-            style={{ opacity: this.state.opacity, paddingBottom: 10 }}
+            style={{
+              opacity: this.state.opacity,
+              padding: 10,
+              paddingTop: -15
+            }}
           >
             <Text>{` ${this.props.conduct.description}`}</Text>
           </Animated.View>
